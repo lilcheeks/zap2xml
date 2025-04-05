@@ -16,12 +16,14 @@ jobs:
             username: ${{secrets.DOCKERHUB_USERNAME}}
             password: ${{secrets.DOCKERHUB_TOKEN}}
           run: |
-            docker login -u $username -p $password 
+            docker login 
+            username: ${{secrets.DOCKERHUB_USERNAME}}
+            password: ${{secrets.DOCKERHUB_TOKEN}} 
         - name: build the docker image
           id: build-docker-image
           run: |
             ls -la 
-            docker build . -f Dockerfile -t lilcheeks81/zap2xml:latest
+            docker build . -f Dockerfile -t lilcheeks/zap2xml:latest
         - name: push the docker image
           id: push-docker-image
-          run: docker push lilcheeks81/zap2xml:latest
+          run: docker push lilcheeks/zap2xml:latest
