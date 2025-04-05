@@ -24,4 +24,4 @@ jobs:
             docker build . -f Dockerfile -t lilcheeks/zap2xml:latest
         - name: push the docker image
           id: push-docker-image
-          run: docker push lilcheeks81/lilcheeks/zap2xml:latest
+          run: docker push lilcheeks81/zap2xml:latest
